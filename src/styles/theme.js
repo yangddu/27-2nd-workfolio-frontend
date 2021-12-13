@@ -1,8 +1,8 @@
 const theme = {
   background: '#FFFEFC',
 
-  fontTitle: "'Alata', sans-serif;",
-  fontContent: "'Noto Sans KR', sans-serif;",
+  fontTitle: "'Alata', 'sans-serif'",
+  fontContent: "Noto Sans KR', 'sans-serif",
 
   colorBlack: '#000',
   colorDarkGray: '#666',
@@ -22,6 +22,20 @@ const theme = {
   weightThin: 300,
 
   marginCenter: '0 auto',
+
+  flex: (direction = 'row', align = 'center', justify = 'center') => `
+    display: flex;
+    flex-direction: ${direction};
+    align-items: ${align};
+    justify-content: ${justify};
+    `,
+
+  absoluteCenter: `
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  `,
 };
 
 export default theme;
