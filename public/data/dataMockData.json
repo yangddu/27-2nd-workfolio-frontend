@@ -1,0 +1,82 @@
+{
+  "MESSAGE": "SUCCESS",
+  "RESULT": {
+    "id": 1,
+    "name": "겁이 많은 마리오",
+    "latitude": "37.506860",
+    "longitude": "127.053350",
+    "city": "서울시",
+    "district": "강남구",
+    "address": "asdfasdfasd",
+    "specials": [
+      {
+        "name": "시합",
+        "description": "멀리 스며들어 가치를 있는 멀듯이, 부패뿐이다. 풀밭에 불러 봄날의 보고, 돋고, 청춘이 이는 있으랴? 위하여서, 하나에 멀리 수 이것이다.",
+        "icon": "cdn-icons-png.flaticon.com/128/2937/2937014.png"
+      },
+      {
+        "name": "야채",
+        "description": "아무 이웃 못할 풍부하게 예가 피가 창공에 것이다. 헤일 뛰노는 어머니 설산에서 크고 그들은 긴지라 것이다. 있으며, 뜨거운지라, 언덕 끓는 이상은 내일 것은 까닭입니다. 그들의 이름자를 원질이 역사를 못 찾아다녀도, 천하를 심장의 아니다.",
+        "icon": "cdn-icons-png.flaticon.com/128/3030/3030375.png"
+      },
+      {
+        "name": "아시아",
+        "description": "인생에 피가 만천하의 봄바람이다. 별이 벌써 온갖 같지 무성할 가치를 있는가? 봄바람을 그와 방황하여도, 청춘의 무엇을 있습니다. 구할 보이는 별이 경, 같이 위하여서.",
+        "icon": "cdn-icons-png.flaticon.com/128/3135/3135711.png"
+      }
+    ],
+    "images": [
+      {
+        "name": "slide_1",
+        "url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8NzB8fG9mZmljZXxlbnwwfHx8fDE2MzkzNjE3NDM&ixlib=rb-1.2.1&q=85"
+      },
+      {
+        "name": "slide_2",
+        "url": "https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8NzF8fG9mZmljZXxlbnwwfHx8fDE2MzkzNjE3NDM&ixlib=rb-1.2.1&q=85"
+      },
+      {
+        "name": "slide_3",
+        "url": "https://images.unsplash.com/photo-1498409785966-ab341407de6e?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8NzJ8fG9mZmljZXxlbnwwfHx8fDE2MzkzNjE3NDM&ixlib=rb-1.2.1&q=85"
+      }
+    ],
+    "sub_title": "외계에서 온 아이폰",
+    "description": "오면 그림자는 그러므로 것은 속에 꽃이 가을로 관현악이며, 이것이다. 놀이 못할 나의 싶이 것이다. 못하다 얼음이 주며, 청춘의 되려니와, 인간의 봅니다. 우리 피는 거선의 우는 이것은 구하지 청춘을 릴케 하였으며, 힘있다. 청춘의 놀이 내려온 커다란 그들의 인간이 내 인류의 철환하였는가?",
+    "title": "잠수타는 살바도르 달리",
+    "offices": [
+      {
+        "id": 1,
+        "name": "우산 도둑맞은 시고르자브종",
+        "price": "26786.00",
+        "capacity": 2,
+        "capacity_max": 20,
+        "image": "https://images.unsplash.com/photo-1633114127451-558041183c3b?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxMjA3fDF8MXxzZWFyY2h8MXx8b2ZmaWNlfGVufDB8fHx8MTYzOTM2Mjg4Ng&ixlib=rb-1.2.1&q=85",
+        "reservations": [
+          ["2021-12-20", "2021-12-25"],
+          ["2021-12-27", "2021-12-29"],
+          ["2022-01-11", "2022-01-13"]
+        ]
+      },
+      {
+        "id": 2,
+        "name": "한숨쉬는 한국다람쥐",
+        "price": "38942.00",
+        "capacity": 3,
+        "capacity_max": 28,
+        "image": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fHx8MTYzOTM2Mjg4Ng&ixlib=rb-1.2.1&q=85",
+        "reservations": [
+          ["2021-01-01", "2021-01-03"],
+          ["2021-01-05", "2021-01-06"]
+        ]
+      },
+      {
+        "id": 3,
+        "name": "무슨 말을 해도 안 웃긴 라떼",
+        "price": "12293.00",
+        "capacity": 4,
+        "capacity_max": 13,
+        "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8b2ZmaWNlfGVufDB8fHx8MTYzOTM2Mjg4Ng&ixlib=rb-1.2.1&q=85",
+        "reservations": []
+      }
+    ]
+  }
+}

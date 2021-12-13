@@ -1,4 +1,5 @@
-const BASE_URL = 'http://10.58.0.112:8000';
+const BASE_URL = 'http://workfolio.kro.kr';
 export const API = {
+  DETAIL: `${BASE_URL}/buildings/1`,
   USER: `${BASE_URL}/users/login`,
 };
