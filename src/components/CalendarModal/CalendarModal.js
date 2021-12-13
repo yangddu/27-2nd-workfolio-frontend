@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 import { addDays } from 'date-fns';
 import './CalendarCustom.css';
+import { API } from '../../config';
 
 function CalendarModal({
   startDate,
@@ -13,29 +14,35 @@ function CalendarModal({
   closeModal,
   excludeDateIntervals,
   offices,
+  checkNumbers,
+  countList,
+  selectedIndex,
 }) {
-  // const handleAddOfficeToCart = () => {
-  //   fetch(`${API.USER}/cart`, {
-  //     method: 'POST',
-  //     headers: {
-  //       Authorization: sessionStorage.getItem('token'),
-  //     },
-  //     body: JSON.stringify({
-  //       office_id: offices.id,
-  //       date_range: productAmount,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       if (result.MESSAGE === 'SUCCESS') {
-  //         alert('장바구니에 담겼습니다.');
-  //         window.location.reload();
-  //       } else if (result.MESSAGE === 'ITEM_ALREADY_EXIST')
-  //         alert('이미 장바구니에 있는 상품입니다.');
-  //       else if (result.ERROR === 'INVALID_TOKEN')
-  //         alert('로그인 후 장바구니에 담아주세요.');
-  //     });
-  // };
+  const handleAddOfficeToCart = () => {
+    fetch(`${API.CART}`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        head_count: countList[selectedIndex],
+        check_in_date: startDate.toISOString().substr(0, 10),
+        check_out_date: endDate.toISOString().substr(0, 10),
+        office: selectedIndex,
+        // checkNubers: checkNumbers;
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.MESSAGE === 'SUCCESS') {
+          alert('예약이 완료되었습니다.');
+          window.location.reload();
+        }
+      });
+  };
+
+  // console.log(countList);
+  // console.log(selectedIndex);
 
   return (
     <ModalWrapper>
@@ -54,7 +61,7 @@ function CalendarModal({
           inline
           monthsShown={2}
         />
-        <ReserveButton>예약하기</ReserveButton>
+        <ReserveButton onClick={handleAddOfficeToCart}>예약하기</ReserveButton>
         <MenuClose>
           <AiOutlineClose className="modalClose" onClick={closeModal} />
         </MenuClose>
@@ -71,14 +78,14 @@ const ModalWrapper = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
+  /* width: 100vw; */
+  /* height: 100vh; */
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 300;
 `;
 
 const ModalInner = styled.div`
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

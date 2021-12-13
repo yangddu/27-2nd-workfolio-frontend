@@ -15,7 +15,6 @@ function Detail() {
   }, []);
 
   const {
-    // id,
     name,
     city,
     district,
@@ -31,7 +30,7 @@ function Detail() {
     dots: false,
     infinite: true,
     speed: 500,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
