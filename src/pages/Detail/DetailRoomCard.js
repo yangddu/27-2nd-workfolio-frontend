@@ -3,27 +3,40 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { AiFillCalendar } from 'react-icons/ai';
 import 'react-datepicker/dist/react-datepicker.css';
 import CalendarModal from '../../components/CalendarModal/CalendarModal';
+import RealDetailRoomCardInfo from './RealDetailRoomCardInfo';
 
 function DetailRoomCard({ offices }) {
   const [dateRange, setDateRange] = useState([new Date()]);
   const [startDate, endDate] = dateRange;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [countList, setCountList] = useState({});
+  //const [isModalOpen, setIsModalOpen] = useState(false);
   const [reservationDate, setReservationDate] = useState('');
   const roomSliderSettings = {
     dots: false,
-    className: 'center',
-    centerMode: true,
     infinite: true,
     autoplay: false,
-    centerPadding: '60px',
-    slidesToShow: 3,
+    // centerPadding: '60px',
+    slidesToShow: 2.7,
     speed: 500,
     nextArrow: <NextButton />,
     prevArrow: <PrevButton />,
   };
+
+  const commanderCount = (id, count) => {
+    setCountList({ ...countList, [id]: count });
+  };
+
+  const reserveDate = date => {
+    setReservationDate(date);
+  };
+  // const [calendarData, setCalendarData] = useState([{}, {}, {}]);
+  //각각 캘린더의 정보
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  //캘린더가 열려 있는지 안 열려 있는지
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  //몇 번째 슬라이드가 클릭이 됐는지
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -33,10 +46,10 @@ function DetailRoomCard({ offices }) {
     setIsModalOpen(false);
   };
 
-  const reserveDate = test => {
-    setReservationDate(test);
+  const updateIndex = id => {
+    setSelectedIndex(id);
   };
-
+  // calendarData[selectedIndex].startDate
   return (
     <ContainerRoom>
       {isModalOpen && (
@@ -45,9 +58,14 @@ function DetailRoomCard({ offices }) {
           excludeDateIntervals={
             !!reservationDate.length &&
             reservationDate.map((date, idx) => {
+              const start_date = new Date(reservationDate[idx][0]);
+              const end_date = new Date(reservationDate[idx][1]);
+              start_date.setDate(start_date.getDate() - 1);
+              end_date.setDate(end_date.getDate() - 1);
+
               return {
-                start: new Date(reservationDate[idx][0]),
-                end: new Date(reservationDate[idx][1]),
+                start: start_date,
+                end: end_date,
               };
             })
           }
@@ -56,6 +74,9 @@ function DetailRoomCard({ offices }) {
           startDate={startDate}
           endDate={endDate}
           setDateRange={setDateRange}
+          countList={countList}
+          offices={offices}
+          selectedIndex={selectedIndex}
         />
       )}
       <RoomCon>
@@ -64,36 +85,56 @@ function DetailRoomCard({ offices }) {
       <RoomSlider {...roomSliderSettings}>
         {offices?.map((office, idx) => {
           return (
-            <RoomInfoWrap key={idx}>
-              <RoomImg key={office.id} src={office.image} />
-              <RoomInfo>
-                <RoomName>
-                  {office.name}
-                  <Small
-                    marginTop="5px"
-                    fontSize="14px"
-                    color="hsla(0,0%,100%,.5)"
-                    letterSpacing="1.5px"
-                  >
-                    기본형
-                  </Small>
-                </RoomName>
-                <RoomPrice>{Number(office.price.toLocaleString())}</RoomPrice>
-                <RoomEtc>
-                  기준 {office.capacity}명 / (최대 {office.capacity_max}
-                  명)
-                </RoomEtc>
-                <RoomCalendar
-                  onClick={() => {
-                    openModal();
-                    reserveDate(office.reservations);
-                  }}
-                >
-                  <AiFillCalendar className="Roomcalendar" />
-                </RoomCalendar>
-                <RoomBook>BOOK</RoomBook>
-              </RoomInfo>
-            </RoomInfoWrap>
+            <RealDetailRoomCardInfo
+              countList={countList}
+              openModal={openModal}
+              key={idx}
+              offices={office}
+              commanderCount={commanderCount}
+              updateIndex={updateIndex}
+              // isModalOpen={isModalOpen}
+              // CalendarModal={CalendarModal}
+              reserveDate={reserveDate}
+            />
+            // <RoomInfoWrap key={idx}>
+            //   <RoomImg key={office.id} src={office.image} />
+            //   <RoomInfo>
+            //     <RoomName>
+            //       {office.name}
+            //       <Small
+            //         marginTop="5px"
+            //         fontSize="14px"
+            //         color="hsla(0,0%,100%,.5)"
+            //         letterSpacing="1.5px"
+            //       >
+            //         기본형
+            //       </Small>
+            //     </RoomName>
+            //     <RoomPrice>{Number(office.price.toLocaleString())}</RoomPrice>
+            //     <RoomEtc>
+            //       기준 {office.capacity}명 / (최대 {office.capacity_max}
+            //       명)
+            //     </RoomEtc>
+            //     <RoomCalendar
+            //       onClick={() => {
+            //         openModal();
+            //         reserveDate(office.reservations);
+            //       }}
+            //     >
+            //       <AiFillCalendar className="Roomcalendar" />
+            //     </RoomCalendar>
+            //     <CheckUsers>
+            //       인원
+            //       <InCreaseButton onClick={onIncreaseUsers}>
+            //         <AiOutlinePlus />
+            //       </InCreaseButton>
+            //       {checkNumbers}
+            //       <DeCreaseButton onClick={onDecreaseUsers}>
+            //         <AiOutlineMinus />
+            //       </DeCreaseButton>
+            //     </CheckUsers>
+            //   </RoomInfo>
+            // </RoomInfoWrap>
           );
         })}
       </RoomSlider>
@@ -160,7 +201,7 @@ const RoomSlider = styled(Slider)`
   top: 120px;
   left: 40%;
   right: 0;
-  width: 100%;
+  /* width: 100%; */
   margin-left: -230px;
   box-shadow: 13px 15px 30px 0 rgb(0 0 0 / 20%);
   background-position: center center;
@@ -175,6 +216,11 @@ const RoomSlider = styled(Slider)`
     &:hover {
       opacity: 1;
     }
+  }
+
+  .slick-list .slick-slide {
+    width: 460px;
+    height: 460px;
   }
 `;
 
@@ -217,67 +263,87 @@ const NextButton = styled.div`
   }
 `;
 
-const RoomImg = styled.img`
-  width: 100%;
-  height: 460px;
-  margin: ${({ theme }) => theme.marginCenter};
-`;
+// const RoomImg = styled.img`
+//   width: 100%;
+//   height: 460px;
+//   margin: ${({ theme }) => theme.marginCenter};
+// `;
 
-const RoomInfoWrap = styled.div`
-  position: relative;
-  margin-left: 20px;
-`;
+// const RoomInfoWrap = styled.div`
+//   position: relative;
+// `;
 
-const RoomInfo = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 140px;
-  background: rgba(0, 0, 0, 0.75);
-  color: ${({ theme }) => theme.colorWhite};
-`;
+// const RoomInfo = styled.div`
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   height: 140px;
+//   background: rgba(0, 0, 0, 0.75);
+//   color: ${({ theme }) => theme.colorWhite};
+// `;
 
-const RoomName = styled.div`
-  position: absolute;
-  width: 290px;
-  left: 30px;
-  bottom: 75px;
-  font-size: 24px;
-  font-weight: 500;
-`;
+// const RoomImgWrap = styled.div`
+//   width: 460px;
+//   height: 460px;
+//   background: red;
+// `;
 
-const RoomPrice = styled.div`
-  position: absolute;
-  right: 30px;
-  bottom: 90px;
-  font-size: 21px;
-`;
+// const RoomName = styled.div`
+//   position: absolute;
+//   width: 290px;
+//   left: 30px;
+//   bottom: 75px;
+//   font-size: 24px;
+//   font-weight: 500;
+// `;
 
-const RoomEtc = styled.div`
-  position: absolute;
-  left: 30px;
-  bottom: 30px;
-  font-size: ${({ theme }) => theme.fontRegular};
-`;
+// const RoomPrice = styled.div`
+//   position: absolute;
+//   right: 30px;
+//   bottom: 90px;
+//   font-size: 21px;
+// `;
 
-const RoomCalendar = styled.button`
-  .Roomcalendar {
-    position: absolute;
-    left: 160px;
-    bottom: 28px;
-    width: 20px;
-    height: 20px;
-    color: ${({ theme }) => theme.colorWhite};
-  }
-`;
+// const RoomEtc = styled.div`
+//   position: absolute;
+//   left: 30px;
+//   bottom: 30px;
+//   font-size: ${({ theme }) => theme.fontRegular};
+// `;
 
-const RoomBook = styled.div`
-  display: block;
-  position: absolute;
-  right: 30px;
-  bottom: 25px;
-  font-size: 13px;
-  line-height: 25px;
-  border-bottom: 1px solid #fff;
-  letter-spacing: 1.5px;
-`;
+// const RoomCalendar = styled.button`
+//   .Roomcalendar {
+//     position: absolute;
+//     left: 160px;
+//     bottom: 28px;
+//     width: 20px;
+//     height: 20px;
+//     color: ${({ theme }) => theme.colorWhite};
+//   }
+// `;
+
+// const CheckUsers = styled.div`
+//   display: block;
+//   position: absolute;
+//   right: 30px;
+//   bottom: 25px;
+//   font-size: 13px;
+//   line-height: 25px;
+//   letter-spacing: 1.5px;
+// `;
+
+// const InCreaseButton = styled.button`
+//   background: ${({ theme }) => theme.colorWhite};
+//   margin: 0 10px;
+//   padding: 5px;
+//   font-size: 14px;
+//   font-weight: 700;
+// `;
+
+// const DeCreaseButton = styled.button`
+//   background: ${({ theme }) => theme.colorWhite};
+//   margin: 0 0 0 10px;
+//   padding: 5px;
+//   font-size: 14px;
+//   font-weight: 700;
+// `;

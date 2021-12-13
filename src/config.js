@@ -6,4 +6,5 @@ export const API = {
   GET_BUILDINGS: `${BASE_URL}/buildings`,
   GET_SPECIALS: `${BASE_URL}/buildings/specials`,
   GET_RESERVATION: `${BASE_URL}/reservations`,
+  CART: `${BASE_URL}/reservations`,
 };
