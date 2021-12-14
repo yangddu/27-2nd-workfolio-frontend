@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "밝음"
+  },
+  {
+    "id": 2,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "어두움"
+  },
+  {
+    "id": 3,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "햇살"
+  },
+  {
+    "id": 4,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "우중충"
+  },
+  {
+    "id": 5,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "밝음"
+  },
+  {
+    "id": 6,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "안개"
+  },
+  {
+    "id": 7,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "어두컴컴"
+  },
+  {
+    "id": 8,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "더움"
+  },
+  {
+    "id": 9,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "천둥번개"
+  },
+  {
+    "id": 10,
+    "title": "캉프맨숀",
+    "city": "서울/마포구",
+    "people": "기준 2명",
+    "minPrice": 20000,
+    "maxPrice": 30000,
+    "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "theme": "우박"
+  }
+]
