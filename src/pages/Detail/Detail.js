@@ -108,6 +108,7 @@ export default Detail;
 const ContainerWide = styled.div`
   position: relative;
   width: 100%;
+  background-color: red;
 `;
 
 const GoBackImg = styled.div`
