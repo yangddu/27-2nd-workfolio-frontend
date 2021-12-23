@@ -21,9 +21,11 @@ function Login() {
             if (res.access_token) {
               alert('WorkFolio에 오신 걸 환영합니다!');
               navigate('/');
+              window.location.reload();
             } else {
               alert('이미 로그인 되어 있습니다.');
               navigate({ pathname: '/' });
+              window.location.reload();
             }
           });
       },

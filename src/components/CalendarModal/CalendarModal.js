@@ -13,12 +13,12 @@ function CalendarModal({
   setDateRange,
   closeModal,
   excludeDateIntervals,
-  offices,
-  checkNumbers,
   countList,
   selectedIndex,
 }) {
   const handleAddOfficeToCart = () => {
+    startDate.setDate(startDate.getDate() + 1);
+    endDate.setDate(endDate.getDate() + 1);
     fetch(`${API.CART}`, {
       method: 'POST',
       headers: {
@@ -41,6 +41,7 @@ function CalendarModal({
       });
   };
 
+  console.log(endDate);
   // console.log(countList);
   // console.log(selectedIndex);
 
