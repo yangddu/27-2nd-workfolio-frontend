@@ -1,61 +1,52 @@
-import React, { useEffect, useState } from 'react';
-// import Slider from 'react-slick';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import MainSlider from 'react-slick';
 
 function Main() {
-  const [buildingList, setBuildingList] = useState([]);
+  const [getData, setGetData] = useState({});
 
   useEffect(() => {
-    fetch('http://workfolio.kro.kr/buildings')
-      .then(res => res.json())
-      .then(data => setBuildingList(data.RESULT.buildings[0]));
+    fetch('http://workfolio.kro.kr/buildings/1')
+      .then(response => response.json())
+      .then(response => {
+        setGetData(response.RESULT);
+      });
   }, []);
 
-  const { image, index } = buildingList;
+  const { images } = getData;
 
-  // const settings = {
-  //   dots: false,
-  //   infinity: false,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   centerPadding: '0px',
-  // };
+  const settings = {
+    dots: true,
+    infinity: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '0px',
+  };
 
   return (
-    <Background>
-      {/* <Slider {...settings}>
-        {buildingList?.map((image, id) => {
+    <BackGround>
+      <MainSlider {...settings}>
+        {images?.map((image, index) => {
           return (
-            <div key={id}>
-              <Img src={image} />
+            <div key={index}>
+              <MainImg src={image.url} />
             </div>
           );
         })}
-      </Slider> */}
-    </Background>
+      </MainSlider>
+    </BackGround>
   );
 }
-const Background = styled.div`
-  width: auto;
-  height: 1200px;
+
+const BackGround = styled.div`
   background-color: ${({ theme }) => theme.colorWhite};
 `;
 
-// const Slider = styled.div`
-//   width: auto;
-//   height: 1200px;
-// `;
-// const ButtonContent = styled.div``;
-
-// const PreButton = styled.button``;
-
-// const NextButton = styled.button``;
-
-// const Img = styled.img`
-//   width: 1702px;
-//   height: 850px;
-//   background: red;
-// `;
+const MainImg = styled.img`
+  width: 1702px;
+  height: 850px;
+`;
 
 export default Main;
