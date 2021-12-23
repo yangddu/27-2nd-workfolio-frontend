@@ -96,6 +96,7 @@ const Button = styled.div`
   background-color: #f5de04;
   padding: 8px 0;
   margin: 40px auto 0;
+  cursor: pointer;
 `;
 
 const KakaoImg = styled.img`
