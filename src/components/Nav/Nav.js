@@ -7,7 +7,7 @@ function Nav() {
     <NavBar>
       <NavBarContainer>
         <NavLogo>
-          <Link to="/">
+          <Link to="/main">
             <LogoImg src="/images/logo.svg" alt="워크 폴리오" />
           </Link>
         </NavLogo>
@@ -17,16 +17,13 @@ function Nav() {
             <Button>
               <MenuButtonImg
                 src="/images/location.svg"
-                alt="어디서 일할까요?"
+                alt="어디로 떠날까요?"
               />
-              <DestinationText>어디서 일할까요?</DestinationText>
+              <DestinationText>어디로 떠날까요?</DestinationText>
             </Button>
             <Button>
-              <MenuButtonImg
-                src="/images/calendar.svg"
-                alt="언제 시작할까요?"
-              />
-              <CalendarText>언제 시작할까요?</CalendarText>
+              <MenuButtonImg src="/images/calendar.svg" alt="언제 떠날까요?" />
+              <CalendarText>언제 떠날까요?</CalendarText>
             </Button>
           </MenuContainer>
 
@@ -58,14 +55,14 @@ const borderBottom = props => css`
 `;
 
 const NavBar = styled.div`
-  margin: ${({ theme }) => theme.marginCenter};
+  padding: 0 60px;
   ${borderBottom}
   background-color: ${({ theme }) => theme.colorWhite};
 `;
 
 const NavBarContainer = styled.div`
-  height: 75px;
   ${({ theme }) => theme.flex('row', 'center', 'space-between')};
+  height: 75px;
 `;
 
 const NavLogo = styled.div`
@@ -84,38 +81,32 @@ const Menu = styled.div`
 
 const MenuContainer = styled.div`
   display: flex;
-  margin-left: 350px;
-  padding-right: 150px;
+  margin-right: 200px;
 `;
 
 const MenuButtonImg = styled.img`
   display: block;
   width: 25px;
   height: 25px;
-  padding-top: 45px;
-  margin: 0 10px 10px 0px;
+  padding-right: 5px;
+  margin-left: 30px;
   cursor: pointer;
 `;
 
 const DestinationText = styled.p`
-  height: 75px;
-  margin: 50px 5px 0 0;
-  font-size: 15px;
+  padding: 5px;
   font-weight: ${({ theme }) => theme.weightSemiBold};
   color: ${({ theme }) => theme.colorBlack};
 
   &::after {
     content: '|';
-    margin-left: 40px;
-    padding: 5px;
+    margin-left: 25px;
     color: ${({ theme }) => theme.colorGray};
   }
 `;
 
 const CalendarText = styled.p`
-  height: 75px;
-  margin: 50px 10px 0 5px;
-  font-size: 15px;
+  padding: 5px;
   font-weight: ${({ theme }) => theme.weightSemiBold};
   color: ${({ theme }) => theme.colorBlack};
 `;
@@ -125,25 +116,23 @@ const DetailMenu = styled.div`
 `;
 
 const Button = styled.button`
-  width: 230px;
   display: flex;
-  padding-top: 7px;
   cursor: pointer;
 `;
 
 const Text = styled.p`
-  width: auto;
-  min-width: 130px;
+  padding-right: 30px;
   font-weight: ${({ theme }) => theme.weightBold};
   color: ${({ theme }) => theme.colorBlack};
 `;
 
 const LogInContainer = styled.div`
   display: flex;
+  padding: 0 60px 3px 0;
 
   &::before {
     content: '|';
-    margin: 3px 20px 0 0;
+    margin-left: 5px;
     color: ${({ theme }) => theme.colorGray};
   }
 `;
@@ -156,8 +145,6 @@ const MyPage = styled.img`
 `;
 
 const LoginText = styled.p`
-  width: auto;
-  min-width: 350px;
   padding-top: 3px;
   font-weight: ${({ theme }) => theme.weightBold};
   color: ${({ theme }) => theme.colorBlack};

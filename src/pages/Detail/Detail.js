@@ -15,7 +15,7 @@ function Detail() {
   }, []);
 
   const {
-    id,
+    // id,
     name,
     city,
     district,
