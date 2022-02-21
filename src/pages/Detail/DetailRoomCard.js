@@ -92,49 +92,8 @@ function DetailRoomCard({ offices }) {
               offices={office}
               commanderCount={commanderCount}
               updateIndex={updateIndex}
-              // isModalOpen={isModalOpen}
-              // CalendarModal={CalendarModal}
               reserveDate={reserveDate}
             />
-            // <RoomInfoWrap key={idx}>
-            //   <RoomImg key={office.id} src={office.image} />
-            //   <RoomInfo>
-            //     <RoomName>
-            //       {office.name}
-            //       <Small
-            //         marginTop="5px"
-            //         fontSize="14px"
-            //         color="hsla(0,0%,100%,.5)"
-            //         letterSpacing="1.5px"
-            //       >
-            //         기본형
-            //       </Small>
-            //     </RoomName>
-            //     <RoomPrice>{Number(office.price.toLocaleString())}</RoomPrice>
-            //     <RoomEtc>
-            //       기준 {office.capacity}명 / (최대 {office.capacity_max}
-            //       명)
-            //     </RoomEtc>
-            //     <RoomCalendar
-            //       onClick={() => {
-            //         openModal();
-            //         reserveDate(office.reservations);
-            //       }}
-            //     >
-            //       <AiFillCalendar className="Roomcalendar" />
-            //     </RoomCalendar>
-            //     <CheckUsers>
-            //       인원
-            //       <InCreaseButton onClick={onIncreaseUsers}>
-            //         <AiOutlinePlus />
-            //       </InCreaseButton>
-            //       {checkNumbers}
-            //       <DeCreaseButton onClick={onDecreaseUsers}>
-            //         <AiOutlineMinus />
-            //       </DeCreaseButton>
-            //     </CheckUsers>
-            //   </RoomInfo>
-            // </RoomInfoWrap>
           );
         })}
       </RoomSlider>
