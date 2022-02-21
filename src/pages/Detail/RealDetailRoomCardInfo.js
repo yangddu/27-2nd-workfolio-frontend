@@ -29,40 +29,8 @@ function RealDetailRoomCardInfo({
     }
   };
 
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setIsModalOpen(false);
-  // };
-
-  // const reserveDate = date => {
-  //   setReservationDate(date);
-  // };
-
   return (
     <>
-      {/* {isModalOpen && (
-        <CalendarModal
-          checkNumbers={checkNumbers}
-          disabledDateRange={offices.reservations}
-          excludeDateIntervals={
-            !!reservationDate.length &&
-            reservationDate.map((date, idx) => {
-              return {
-                start: new Date(reservationDate[idx][0]),
-                end: new Date(reservationDate[idx][1]),
-              };
-            })
-          }
-          minDate={new Date()}
-          closeModal={closeModal}
-          startDate={startDate}
-          endDate={endDate}
-          setDateRange={setDateRange}
-        />
-      )} */}
       <RoomInfoWrap>
         <RoomImg key={offices.id} src={offices.image} />
         <RoomInfo>
